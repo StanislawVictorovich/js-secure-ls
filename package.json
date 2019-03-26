@@ -1,0 +1,8 @@
+{
+  "name": "js-xznxmp",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "secure-ls": "^1.2.5"
+  }
+}
