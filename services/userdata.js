@@ -36,7 +36,12 @@ class UserData extends SecureStorage {
     return !!this.getUser(email);
   }
   getUser(email) {
-    return this.getUserData().users.filter(user => user.email === email)[0];
+    const { users } = this.getUserData();
+    if (users) {
+      return this.getUserData().users.filter(user => user.email === email)[0];
+    } else {
+      return false;
+    }
   }
   getUserAnswer(email, questionId) {
     const user = this.getUser(email);
@@ -48,10 +53,10 @@ class UserData extends SecureStorage {
   }
   saveNewUser() {
     const { firstName, lastName, email, date, users } = this.getUserData();
-    if (this.emailRegistered(email)) {
+    if (this.emailRegistered(email) || !users) {
       return false;
     }
-    users.push({ firstName, lastName, email, date }); 
+    users.push({ firstName, lastName, email, date });
     this.setUserData({ users });
   }
 }
