@@ -11,10 +11,13 @@ const data = {
   lastName: "Smereko"
 }
 
-//userData.clearStorage();
-//userData.setUserData({users}); 
-//userData.setUserData(data);
+userData.clearStorage();
+userData.setUserData({users}); 
+userData.setUserData(data);
 
+console.log(localStorage.getItem("user_data"));
+console.log(`-------------------------------------`);
 console.log(userData.getUserData());
 console.log(`-------------------------------------`);
 console.log(userData.saveNewUser());
+
