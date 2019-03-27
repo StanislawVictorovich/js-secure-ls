@@ -1,5 +1,4 @@
 import SecureLS from "secure-ls";
-import constants from "./constants";
 
 export class SecureStorage {
   constructor(key) {
