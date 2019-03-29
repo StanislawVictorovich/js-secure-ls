@@ -6,10 +6,10 @@ class UserData extends SecureStorage {
     super(key);
     types.STORAGE_FIELDS.forEach(item => {
       Object.defineProperty(this, item, {
-        get: function() {
+        get() {
           return this.getUserData()[item];
         },
-        set: function(value) {
+        set(value) {
           this.setUserData(new function() { 
             this[item] = value;
           })
