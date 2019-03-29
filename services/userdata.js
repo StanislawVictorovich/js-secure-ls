@@ -4,33 +4,12 @@ import types from "./types";
 class UserData extends SecureStorage {
   constructor(key) {
     super(key);
-  }
-  get email() {
-    return this.getUserData().email;
-  }
-  set email(email) {
-    this.setUserData({ email });
-  }
-  get firstName() {
-    return this.getUserData().firstName;
-  }
-  set firstName(firstName) {
-    this.setUserData({ firstName });
-  }
-  get lastName() {
-    return this.getUserData().lastName;
-  }
-  set lastName(lastName) {
-    this.setUserData({ lastName });
-  }
-  get date() {
-    return this.getUserData().date;
-  }
-  set date(date) {
-    this.setUserData({ date });
-  }
-  get users() {
-    return this.getUserData().users;
+    ['firstName', 'lastName', 'date', 'users', 'email'].forEach(item => {
+      this.__defineGetter__(item, () => this.getUserData()[item]);
+      this.__defineSetter__(item, value => this.setUserData(new function() { 
+        this[item] = value;
+      }));
+    });
   }
   emailRegistered(email) {
     return !!this.getUser(email);
