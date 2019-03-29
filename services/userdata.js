@@ -21,20 +21,11 @@ class UserData extends SecureStorage {
     return !!this.getUser(email);
   }
   getUser(email) {
-    const { users } = this.getUserData();
-    if (users) {
-      return this.getUserData().users.filter(user => user.email === email)[0];
-    } else {
-      return false;
-    }
+    return this.getUserData() ? this.getUserData().users.filter(user => user.email === email)[0] : false;
   }
   getUserAnswer(email, questionId) {
     const user = this.getUser(email);
-    if (user) {
-      return user.answersMatrix[user.questionsIdMatrix.indexOf(questionId)];
-    } else {
-      return false;
-    }
+    return user ? user.answersMatrix[user.questionsIdMatrix.indexOf(questionId)] : false;
   }
   saveNewUser() {
     const { firstName, lastName, email, date, users } = this.getUserData();
