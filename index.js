@@ -15,6 +15,9 @@ userData.clearStorage();
 userData.setUserData({users}); 
 userData.setUserData(data);
 
+userData.email = "SMORO-dine@oioi.oi";
+console.log(userData.email);
+
 console.log(localStorage.getItem("user_data"));
 console.log(`-------------------------------------`);
 console.log(userData.getUserData());
