@@ -2,4 +2,6 @@
 
 [⚡️](https://stackblitz.com/edit/js-secure-ls)
 
-this repository is an experimental part of user-service for some Vue app
+This repository is an experimental part of user-service for some Vue app.
+Developed class represents dynamic setting and getting data from sercured local storage.
+

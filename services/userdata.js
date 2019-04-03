@@ -2,8 +2,8 @@ import { SecureStorage } from "./storage";
 import constants from "./constants";
 
 class UserData extends SecureStorage {
-  constructor(key) {
-    super(key);
+  constructor(key, encodingType) {
+    super(key, encodingType);
     constants.STORAGE_FIELDS.forEach(item => {
       Object.defineProperty(this, item, {
         get() {
@@ -37,4 +37,4 @@ class UserData extends SecureStorage {
   }
 }
 
-export default new UserData(constants.SECURE_KEY);
+export default new UserData(constants.SECURE_KEY, constants.ENCODING_TYPE);

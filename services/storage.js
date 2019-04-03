@@ -1,10 +1,10 @@
 import SecureLS from "secure-ls";
 
 export class SecureStorage {
-  constructor(key) {
+  constructor(key, encodingType) {
     this.storage_id = key;
     this.secureStorage = new SecureLS({
-      encodingType: "base64",
+      encodingType,
       isCompression: true
     });
   }
