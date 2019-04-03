@@ -8,16 +8,16 @@ export class SecureStorage {
       isCompression: true
     });
   }
-  setUserData(user) {
+  setUserData(data) {
     const storedUser = this.getUserData();
 
     for (let key in storedUser) {
-      if (user[key] === undefined) {
-        user[key] = storedUser[key];
+      if (data[key] === undefined) {
+        data[key] = storedUser[key];
       }
     }
     
-    this.secureStorage.set(this.storage_id, JSON.stringify(user));
+    this.secureStorage.set(this.storage_id, JSON.stringify(data));
   }
   getUserData() {
     try {
