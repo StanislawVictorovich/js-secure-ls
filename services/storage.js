@@ -12,7 +12,7 @@ export class SecureStorage {
     const storedUser = this.getUserData();
 
     for (let key in storedUser) {
-      if (data[key] === void('property not exists')) {
+      if (!(key in data)) { // if (data[key] === void('property not exists'))
         data[key] = storedUser[key];
       }
     }
